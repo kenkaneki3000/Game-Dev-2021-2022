@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         //Get the components
         cam = Camera.main;
         rb = GetComponent<Rigidbody>();
-        weapon = Getcomponet<Weapons>();
+        weapons = GetComponent<Weapons>();
         //disable cursor
         Cursor.lockState = CursorLockMode.Locked;
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapons : MonoBehaviour
 {
-    public GameObject bulletPrefab;
+    public ObjectPool bulletPool;
 
     public Transform muzzle;
 
@@ -18,28 +18,31 @@ public class Weapons : MonoBehaviour
     void Awake()
     {
         //are we attached to the player
-        if(getComponet<PlayerController>())
+        if(GetComponent<PlayerController>())
         {
             isPlayer = true;
         }
     }
-    public bool Canshoot()
+    public bool CanShoot()
     {
-        if(Time.time - lastShootTime >= true)
+        if(Time.time - lastShootTime >= shootRate)
         {
             if(curAmmo > 0 || infiniteAmmo == true)
                return false;
         }
+        return false;
     }
     public void Shoot()
     {
-        LastShootTime = Time.time;
+        lastShootTime = Time.time;
         curAmmo--;
 
-        GameObject bullet = Instatiante(bulletPrefab, muzzle.position, muzzle.rotation);
+        GameObject bullet = bulletPool.GetObject();
+        bullet.transform.position = muzzle.position;
+        bullet.transform.rotation = muzzle.rotation;
 
         //set velocity
-        bullet.getComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
+        bullet.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
     }
     // Start is called before the first frame update
     void Start()
