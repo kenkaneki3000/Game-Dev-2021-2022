@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetButtonDown("Jump"))
         Jump();
 
-        if(Input.GetButton("Fire"))
+        if(Input.GetButton("Fire1"))
         {
             if(weapons.CanShoot())
             {
@@ -81,6 +81,12 @@ public class PlayerController : MonoBehaviour
         cam.transform.localRotation = Quaternion.Euler(-rotX,0,0);
         transform.eulerAngles += Vector3.up * y;
     }
-
-
+     public void Givehealth (int amountToGive)
+    {
+        curHP = Mathf.Clamp(curHP + ((byte)amountToGive, 0, maxHP));
+    }
+     public void GiveAmmo (int amountToGive)
+    {
+        weapons.curAmmo = Mathf.Clamp(weapons.curAmmo + amoountToGive, 0, weapons.maxAmmo);
+    }
 }
