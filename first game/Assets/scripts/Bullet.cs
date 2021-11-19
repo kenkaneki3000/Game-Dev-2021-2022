@@ -21,14 +21,22 @@ public class Bullet : MonoBehaviour
     void OntriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
-        other.GetComponent<PlayerController>().TakeDamage(damage);
+        {
+            other.GetComponent<PlayerController>().TakeDamage(damage);
+        }            
+
         else
-        if(other.CompareTag("Enemy"))
-        other.GetComponent<Enemy>().TakeDamage(damage);
+        {
+             if(other.CompareTag("Enemy"))
+             {
+                 other.GetComponent<Enemy>().TakeDamage(damage);
+             }                
+        }           
+
         //Disable bullet
         gameObject.SetActive(false);
-        GameObject obj = intstantiate(bitParticle, transform,position)
-        Destroy(obj). 0.5f();
+        GameObject obj = intstantiate(bitParticle, transform,position);
+        Destroy(obj, 0.5f);
 
     }
     // Update is called once per frame
