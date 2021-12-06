@@ -30,6 +30,9 @@ public class Bullet : MonoBehaviour
              if(other.CompareTag("Enemy"))
              {
                  other.GetComponent<Enemy>().TakeDamage(damage);
+                 gameObject.SetActive(false);
+                 GameObject obj = Instantiate(hitParticle, transform.position, Quaternion.identity);
+                 Destroy(obj, 0.5f);
              }                
         }           
 

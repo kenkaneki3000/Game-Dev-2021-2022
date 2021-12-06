@@ -17,6 +17,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private Weapons weapons;
 
+    [Header("stats")]
+    public int curHP;
+    public int maxHP;
+
     void Awake()
     {
         //Get the components
@@ -70,6 +74,17 @@ public class PlayerController : MonoBehaviour
              rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
          }
      }
+    public void TakeDamage(int damage)
+    {
+        curHP -= damage;
+
+        if(curHP <= 0)
+            Die();
+    }
+    void Die()
+    {
+        print(" you have died");
+    }
 
      void CamLook()
     {
