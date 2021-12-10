@@ -76,6 +76,8 @@ public class PlayerController : MonoBehaviour
      }
     public void TakeDamage(int damage)
     {
+        GameUI.instance.UpdateHealthBar(curHP, maxHP);
+        
         curHP -= damage;
 
         if(curHP <= 0)
@@ -99,9 +101,11 @@ public class PlayerController : MonoBehaviour
      public void Givehealth (int amountToGive)
     {
         curHP = Mathf.Clamp(curHP + ((byte)amountToGive, 0, maxHP));
+        GameUI.instance.UpdateHealthBar(curHP, maxHP);
     }
      public void GiveAmmo (int amountToGive)
     {
         weapons.curAmmo = Mathf.Clamp(weapons.curAmmo + amoountToGive, 0, weapons.maxAmmo);
+         GameUI.instance.UpdateAmmoText(weapons.curAmmo, weapons.maxAmmo);
     }
 }

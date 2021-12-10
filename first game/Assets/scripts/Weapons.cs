@@ -40,9 +40,11 @@ public class Weapons : MonoBehaviour
         GameObject bullet = bulletPool.GetObject();
         bullet.transform.position = muzzle.position;
         bullet.transform.rotation = muzzle.rotation;
-
         //set velocity
         bullet.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
+
+        if(isPlayer)
+            GameUI.instance.UpdateAmmoText(curAmmo, maxAmmo);
     }
     // Start is called before the first frame update
     void Start()

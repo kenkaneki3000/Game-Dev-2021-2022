@@ -48,7 +48,9 @@ public class Enemy : MonoBehaviour
     }
      void Die()
      {
-         Destroy(gameObject);
+         rb.constraints = RigidbodyConstraints;
+         Destroy(gameObject,1);
+         GameManager.intstance.AddScore(scoreToGive);
      }
 
     // Update is called once per frame
