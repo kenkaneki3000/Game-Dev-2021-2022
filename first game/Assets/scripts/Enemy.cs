@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     private List<Vector3> path;
     private Weapons weapons;
     private GameObject target;
+    private Rigidbody rigidbody;
     // Start is called before the first frame update
     void Start()
     {

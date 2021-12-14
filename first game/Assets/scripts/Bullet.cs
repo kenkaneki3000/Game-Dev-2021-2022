@@ -5,9 +5,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public int damage;
-    public float lifetime;
+    public float lifeTime;
     private float shootTime;
-
+    public GameObject hitParticle;
     void onEnable()
     {
         shootTime = Time.time;
@@ -21,31 +21,24 @@ public class Bullet : MonoBehaviour
     void OntriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
-        {
             other.GetComponent<PlayerController>().TakeDamage(damage);
-        }            
+         else
+            { 
+                if(other.CompareTag("Enemy"))
+                {
+                    other.GetComponent<Enemy>().TakeDamage(damage);
+                } 
+            }     
+        
+            GameObject obj = Instantiate(hitParticle, transform.position, Quaternion.identity);
+            Destroy(obj, 0.5f);
 
-        else
-        {
-             if(other.CompareTag("Enemy"))
-             {
-                 other.GetComponent<Enemy>().TakeDamage(damage);
-                 gameObject.SetActive(false);
-                 GameObject obj = Instantiate(hitParticle, transform.position, Quaternion.identity);
-                 Destroy(obj, 0.5f);
-             }                
-        }           
-
-        //Disable bullet
-        gameObject.SetActive(false);
-        GameObject obj = intstantiate(bitParticle, transform,position);
-        Destroy(obj, 0.5f);
-
+            gameObject.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
         if(Time.time - shootTime >= lifeTime)
-         gameObject.SetActive(false);
+            gameObject.SetActive(false);
     }
 }

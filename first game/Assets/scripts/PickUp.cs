@@ -37,8 +37,9 @@ public enum PickupType
 
                 case PickupType.Ammo:
                 player.GiveAmmo(value);
+                break;
             }
-        
+            Destroy(gameObject);
         } 
 
     }

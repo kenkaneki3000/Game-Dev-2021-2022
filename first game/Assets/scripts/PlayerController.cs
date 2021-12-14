@@ -33,17 +33,24 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //inishulize the UI
+        GameUI.instance.UpdateHealthBar(curHP, maxHP);
+        GameUI.instance.UpdateScoreText(0);
+        GameUI.instance.UpdateAmmoText(weapons.curAmmo, weapons.maxAmmo);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //don'tdo anyting when game is paused
+        if(GameManager.instance.gamePaused == true)
+            return;
+
         Move();
         CamLook();
         //Jump when spacebar is pressed
         if(Input.GetButtonDown("Jump"))
-        Jump();
+            Jump();
 
         if(Input.GetButton("Fire1"))
         {
@@ -86,6 +93,7 @@ public class PlayerController : MonoBehaviour
     void Die()
     {
         print(" you have died");
+        GameManger.instance.LoseGame();
     }
 
      void CamLook()

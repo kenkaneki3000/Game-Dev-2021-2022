@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagment;
+using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour
 {
@@ -36,9 +37,9 @@ public class GameUI : MonoBehaviour
     {
         
     }
-    public void UpdateHealthBar(int curHP, int MaxHP)
+    public void UpdateHealthBar(int curHP, int maxHP)
     {
-        healthBarFill. fillAmount = (float)cupHp / (float)maxHP;
+        healthBarFill.fillAmount = (float)curHP / (float)maxHP;
     }
     public void UpdateScoreText(int score)
     {
@@ -54,14 +55,14 @@ public class GameUI : MonoBehaviour
     }
     public void SetEndGameScreen(bool won, int score)
     {
-        endGameHeaderText.text = won == true ? "You Win, Go to Taco Bell" : "You Lose, No Taco Bell for you!!";
+        endGameHeaderText.text = won == true ? "You Win, welcome to the Gulag" : "You Lose, Have fun in the after life";
         endGameHeaderText.color = won == true ? Color.green : Color.red;
         endGameScoreText.text = " <b>Score/B>\n" + score;
     }
 
     public void OnResumeButton()
     {
-        GameManager.tntstance.TogglePauseGame();
+        GameManager.intstance.TogglePauseGame();
     }
     public void OnRestartButton()
     {
