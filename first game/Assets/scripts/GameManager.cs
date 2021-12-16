@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public bool gamePaused;
     //Instance of game manager
     public static GameManager intstance;
+    
 
     void Awake()
     {

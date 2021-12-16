@@ -17,6 +17,7 @@ public enum PickupType
     public float bobSpeed;
     public float bobHeight;
     public bool bobbingUp;
+    public AudioClip pickupSfx;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,8 @@ public enum PickupType
                 player.GiveAmmo(value);
                 break;
             }
+            other.GetComponent<AudioSource>().PlayOneShot(pickupSfx);
+            
             Destroy(gameObject);
         } 
 
