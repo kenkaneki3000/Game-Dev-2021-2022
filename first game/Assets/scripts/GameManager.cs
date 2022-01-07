@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     }
     public void WinGame()
     {
-        GameUI.instance.SetEndGameScreen(true,curScore);
+        GameUI.instance.GetEndGameScreen(true,curScore);
     }
     public void LoseGame()
     {

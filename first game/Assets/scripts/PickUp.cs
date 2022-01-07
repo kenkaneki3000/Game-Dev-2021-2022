@@ -18,6 +18,7 @@ public enum PickupType
     public float bobHeight;
     public bool bobbingUp;
     public AudioClip pickupSfx;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +52,7 @@ public enum PickupType
     void Update()
     {
        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
-       Vector3 offset = (bobbingUp == true ? new Vector3(0, bobHeight / 2, 0) : Vector3(0, -bobHeight / 2, 0));
+       Vector3 offset = (bobbingUp == true ? new Vector3(0, bobHeight / 2, 0) : new Vector3(0, -bobHeight / 2, 0));
     }
 
 }

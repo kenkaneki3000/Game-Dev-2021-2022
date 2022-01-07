@@ -53,7 +53,7 @@ public class GameUI : MonoBehaviour
     {
         pauseMenu.SetActive(paused);
     }
-    public void SetEndGameScreen(bool won, int score)
+    public void GetEndGameScreen(bool won, int score)
     {
         endGameHeaderText.text = won == true ? "You Win, welcome to the Gulag" : "You Lose, Have fun in the after life";
         endGameHeaderText.color = won == true ? Color.green : Color.red;

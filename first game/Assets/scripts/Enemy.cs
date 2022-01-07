@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     private List<Vector3> path;
     private Weapons weapons;
     private GameObject target;
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
     }
      void Die()
      {
-         rb.constraints = RigidbodyConstraints;
+         rb.constraints = RigidbodyConstraints.None;
          Destroy(gameObject,1);
          GameManager.intstance.AddScore(scoreToGive);
      }

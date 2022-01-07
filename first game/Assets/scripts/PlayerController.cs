@@ -106,9 +106,9 @@ public class PlayerController : MonoBehaviour
         cam.transform.localRotation = Quaternion.Euler(-rotX,0,0);
         transform.eulerAngles += Vector3.up * y;
     }
-     public void Givehealth (int amountToGive)
+     public void GiveHealth (int amountToGive)
     {
-        curHP = Mathf.Clamp(curHP + ((byte)amountToGive, 0, maxHP));
+        curHP = Mathf.Clamp(curHP + (curHP + amountToGive, 0, maxHP));
         GameUI.instance.UpdateHealthBar(curHP, maxHP);
     }
      public void GiveAmmo (int amountToGive)
