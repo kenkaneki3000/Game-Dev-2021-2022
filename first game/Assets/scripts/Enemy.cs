@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
      {
          rb.constraints = RigidbodyConstraints.None;
          Destroy(gameObject,1);
-         GameManager.intstance.AddScore(scoreToGive);
+         GameManager.instance.AddScore(scoreToGive);
      }
 
     // Update is called once per frame

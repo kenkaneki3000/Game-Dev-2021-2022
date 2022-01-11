@@ -62,7 +62,7 @@ public class GameUI : MonoBehaviour
 
     public void OnResumeButton()
     {
-        GameManager.intstance.TogglePauseGame();
+        GameManager.instance.TogglePauseGame();
     }
     public void OnRestartButton()
     {

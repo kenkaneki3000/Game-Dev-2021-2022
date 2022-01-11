@@ -16,7 +16,7 @@ public class Weapons : MonoBehaviour
     private float lastShootTime;
     private bool isPlayer;
     public AudioClip shootSfx;
-    private AudioSource audioScource;
+    private AudioSource audioSource;
     void Awake()
     {
         //are we attached to the player
@@ -25,7 +25,7 @@ public class Weapons : MonoBehaviour
             isPlayer = true;
             
         }
-        audioScource = GetComponent<AudioScource>();
+        audioSource = GetComponent<AudioSource>();
     }
     public bool CanShoot()
     {

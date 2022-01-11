@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
     void Die()
     {
         print(" you have died");
-        GameManger.instance.LoseGame();
+        GameManager.instance.LoseGame();
     }
 
      void CamLook()
@@ -108,12 +108,12 @@ public class PlayerController : MonoBehaviour
     }
      public void GiveHealth (int amountToGive)
     {
-        curHP = Mathf.Clamp(curHP + (curHP + amountToGive, 0, maxHP));
+        curHP = Mathf.Clamp(curHP + amountToGive, 0, maxHP);
         GameUI.instance.UpdateHealthBar(curHP, maxHP);
     }
      public void GiveAmmo (int amountToGive)
     {
-        weapons.curAmmo = Mathf.Clamp(weapons.curAmmo + amoountToGive, 0, weapons.maxAmmo);
+        weapons.curAmmo = Mathf.Clamp(weapons.curAmmo + amountToGive, 0, weapons.maxAmmo);
          GameUI.instance.UpdateAmmoText(weapons.curAmmo, weapons.maxAmmo);
     }
 }

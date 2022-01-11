@@ -8,12 +8,12 @@ public class GameManager : MonoBehaviour
     public int curScore;
     public bool gamePaused;
     //Instance of game manager
-    public static GameManager intstance;
+    public static GameManager instance;
     
 
     void Awake()
     {
-        intstance = this;
+        instance = this;
     }
     // Start is called before the first frame update
     void Start()
