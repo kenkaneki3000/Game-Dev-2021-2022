@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
     }
     void Die()
     {
-        print(" you have died");
+        print("you have died");
         GameManager.instance.LoseGame();
     }
 
